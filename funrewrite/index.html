@@ -50,6 +50,14 @@
     <div style='background: #ededed; width: 100%; height: 1px;'></div>
     <p>Drag this, <a class="bookmarklet" href='javascript:(function() { var appBody = document.getElementsByTagName("body")[0].innerHTML;
     	var appSaveCache = appBody;
+    	var isNight = 0;
+    	var isEmoji = 0;
+
+    	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + "<div id=\"nm-msg\" style=\"position: fixed; top: 0px; left: 15px; width: 175px; padding: 5px; background: #3c424c; color: #fff; border: #fff; border-radius: 0px 0px 3px 3px;\">Night mode is on. It is getting spoopy.</div>";
+
+function onStart() {
+	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + "<div style=\"position: fixed; top: 15px; right: 15px; width: 512; padding: 5px; background: #3c424c; color: #fff; border: #fff; border-radius: 3px\">Installed FunRewrite on this page!<br><br><a onclick=\"nightMode();\">Toggle night mode</a></div>";
+}
 
 function spaceEmoji() {
 	appBody = appBody.replace(new RegExp(" ", "g"), maChoose(["&#128512;", "&#128513;", "&#128514;", "&#128515;", "&#128516;", "&#128517;", "&#128518;"]));
@@ -57,13 +65,25 @@ function spaceEmoji() {
 }
 
 function nightMode() {
-	document.getElementsByTagName("body")[0].style.background = "#000";
-	document.getElementsByTagName("body")[0].style.color = "#fff";
-	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"color: #fff; background: #000;\">");
+	if(isNight == 0) {
+		document.getElementsByTagName("body")[0].style.background = "#000";
+		document.getElementsByTagName("body")[0].style.color = "#fff";
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"color: #fff; background: #000;\">");
 
-	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + "<div style=\"position: fixed; top: 0px; left: 15px; width: 175px; padding: 5px; background: #3c424c; color: #fff; border: #fff; border-radius: 0px 0px 3px 3px;\">Night mode is on. It is getting spoopy.</div>";
+		document.getElementsById("nm-msg").style.display = "block";
+		isNight = 1;
+	} else {
+		document.getElementsByTagName("body")[0].style.background = "#000";
+		document.getElementsByTagName("body")[0].style.color = "#fff";
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"color: #fff; background: #000;\">");
+
+		document.getElementsById("nm-msg").style.display = "none";
+		isNight = 0;
+	}
+}
 }
 
+onStart();
 nightMode();
 
 function maChoose(choices) {
