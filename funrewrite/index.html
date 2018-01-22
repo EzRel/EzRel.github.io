@@ -57,10 +57,10 @@ function spaceEmoji() {
 }
 
 function nightMode() {
-	//document.getElementsByTagName("body")[0].style.background = "#000";
-	//document.getElementsByTagName("body")[0].style.color = "#fff";
+	/*document.getElementsByTagName("body")[0].style.background = "#000";
+	document.getElementsByTagName("body")[0].style.color = "#fff";*/
 	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"color: #fff; background: #000;\">");
-	
+
 	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + "<div style=\"position: fixed; top: 0px; left: 15px; width: 175px; padding: 5px; background: #3c424c; color: #fff; border: #fff; border-radius: 0px 0px 3px 3px;\">Night mode is on. It is getting spoopy.</div>";
 }
 
