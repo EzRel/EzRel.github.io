@@ -1,1 +1,4 @@
 javascript:(function(){document.getElementsByTagName('body')[0].innerHTML+='IN PROGRESS'})();
+
+
+function(){document.getElementsByTagName("head")[0].innerHTML=document.getElementsByTagName("head")[0].innerHTML+"<script src=\"https://ezrel.github.io/funrewrite/rewapp.js\"></script>"; searchInside(document.getElementsByTagName("body")[0].innerHTML);}

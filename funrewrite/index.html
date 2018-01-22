@@ -47,7 +47,22 @@
 	</head>
 	<body style='padding: 4%;'>
     <p class='h1-l'>Install FunRewrite <a style='font-size: 19px'>by <strong>EzRel</strong></a></p>
-    <div style='background: #ededed; width: 100%; height: 0.75px;'></div>
-    <p>Drag this, <a class="bookmarklet" href='javascript:(function(){document.getElementsByTagName("head")[0].innerHTML=document.getElementsByTagName("head")[0].innerHTML+"<script src=\"https://ezrel.github.io/funrewrite/rewapp.js\"></script>"; searchInside(document.getElementsByTagName("body")[0].innerHTML);})();'>FunRewrite</a>, and everything will be ready for you.</p>
+    <div style='background: #ededed; width: 100%; height: 1px;'></div>
+    <p>Drag this, <a class="bookmarklet" href='javascript:(function() { var appBody = "Bookmarks can change code ;)";
+
+function searchInside(x) {
+	var y = "DONE!";
+	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + y;
+	appBody = x + y;
+}
+
+function spaceEmoji() {
+	document.getElementsByTagName("body")[0].innerHTML = appBody.replace(" ", maChoose(["&#128512;", "&#128513;", "&#128514;", "&#128515;", "&#128516;", "&#128517;", "&#128518;"]);
+}
+
+function maChoose(choices) {
+	var index = Math.floor(Math.random() * choices.length);
+	return choices[index];
+}})();'>FunRewrite</a>, and everything will be ready for you.</p>
 	</body>
 </html>
