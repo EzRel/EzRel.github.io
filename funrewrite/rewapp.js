@@ -7,7 +7,7 @@ function searchInside(x) {
 }
 
 function spaceEmoji() {
-	document.getElementsByTagName('body')[0].innerHTML = appBody.replace(" ", maChoose(["&#128512;", "&#128513;", "&#128514;", "&#128515;", "&#128516;", "&#128517;", "&#128518;"]));
+	document.getElementsByTagName('body')[0].innerHTML = appBody.replace(" ", maChoose(["&#128512;", "&#128513;", "&#128514;", "&#128515;", "&#128516;", "&#128517;", "&#128518;"]);
 }
 
 function maChoose(choices) {
