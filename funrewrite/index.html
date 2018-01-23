@@ -59,7 +59,12 @@ function nightMode() {
 		document.getElementsByTagName("body")[0].style.color = "#fff";
 		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"color: #fff; background: #000;\">");
 
+		if(document.getElementsByTagName("body")[0].innerHTML == "") {
+			document.getElementsByTagName("body")[0].style.background = document.getElementsByTagName("body")[0].style.background + "<div style=\"position: fixed; top: 10px; left: 45%; width: 10%; color: #fff; background: #000; z-index: 99999999; padding: 4px;\">It is a bit to dark over here!<br><i>(error! Refresh the page!)</i>";
+		}
+
 		document.getElementsById("nm-msg").style.display = "block";
+
 		isNight = 1;
 	} else {
 		document.getElementsByTagName("body")[0].style.background = "#000";
