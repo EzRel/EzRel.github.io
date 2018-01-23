@@ -34,7 +34,7 @@
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body style='padding: 4%;'>
-    <p class='h1-l'>Install FunRewrite <a style='font-size: 19px'>by <span style='font-weight: 100;'>EzRel</span></a></p>
+    <p class='h1-l'><span style='font-weight: 100;'>EzRel</span>'s HTML/JS projects <span id='forwarded'><b>&raquo;</b> FunRewrite</span></p>
     <div style='background: #ededed; width: 100%; height: 1px;'></div>
     <p>Drag this, <a class="bookmarklet" href='javascript:(function() { var appBody = document.getElementsByTagName("body")[0].innerHTML;
     	var appSaveCache = appBody;
@@ -95,5 +95,17 @@ function maChoose(choices) {
 	var index = Math.floor(Math.random() * choices.length);
 	return choices[index];
 }})();'>FunRewrite</a> into your bookmarks and everything will be ready for you.</p>
+	<script type="text/javascript">
+		var timeIn = setInterval(runMSly, 50);
+
+		var forwardRun = 0;
+
+		function runMSly() {
+			if(forwardRun == 0) {
+				document.getElementsById('forwarded').style.opacity = "1";
+				forwardRun += 1;
+			}
+		}
+	</script>
 	</body>
 </html>
