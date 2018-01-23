@@ -52,6 +52,7 @@
     	var appSaveCache = appBody;
     	var isNight = 0;
     	var isEmoji = 0;
+    	var isRetro = 0;
 
     	document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + "<div id=\"nm-msg\" style=\"position: fixed; top: 0px; left: 15px; width: 175px; padding: 5px; background: #3c424c; color: #fff; border: #fff; border-radius: 0px 0px 3px 3px;\">Night mode is on. It is getting spoopy.</div>";
 
@@ -75,16 +76,32 @@ function nightMode() {
 	} else {
 		document.getElementsByTagName("body")[0].style.background = "#000";
 		document.getElementsByTagName("body")[0].style.color = "#fff";
-		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"color: #fff; background: #000;\">");
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("style=\"color: #fff; background: #000;\">", "g"), ">");
 
 		document.getElementsById("nm-msg").style.display = "none";
 		isNight = 0;
 	}
 }
+
+function retroMode() {
+	if(isRetro == 0) {
+		document.getElementsByTagName("body")[0].innerHTML = "<link href=\"https://fonts.googleapis.com/css?family=VT323\" rel=\"stylesheet\">" + document.getElementsByTagName("body")[0].innerHTML;
+
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp(">", "g"), "style=\"font-family: VT323;\"[-+-]");
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("[-+-]", "g"), ">");
+
+		isRetro = 1;
+	} else {
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("style=\"font-family: VT323;\"[-+-]", "g"), ">");
+		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("[-+-]", "g"), ">");
+
+		document.getElementsById("nm-msg").style.display = "none";
+		isRetro = 0;
+	}
 }
 
 onStart();
-nightMode();
+retroMode();
 
 function maChoose(choices) {
 	var index = Math.floor(Math.random() * choices.length);
