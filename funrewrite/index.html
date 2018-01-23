@@ -91,13 +91,13 @@ function retroMode() {
 		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("[-+-]", "g"), ">");
 
 		isRetro = 1;
-	} else {
+	} /*else {
 		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("style=\"font-family: VT323;\"[-+-]", "g"), ">");
 		document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML.replace(new RegExp("[-+-]", "g"), ">");
 
 		document.getElementsById("nm-msg").style.display = "none";
 		isRetro = 0;
-	}
+	}*/
 }
 
 onStart();
