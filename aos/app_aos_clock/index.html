@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" id='os-body'>
+
+<head>
+  <meta charset="UTF-8">
+  <title>aOSlockedscene</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script defer="" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Simplest OS for any device, optimized for maximum performance and unlimited cloud storage.">
+  <meta name="keywords" content="aerial operating os system">
+  <meta name="author" content="Dominic Satnoianu">
+
+  <!-- Facebook -->
+  <meta property="og:title" content="Aerial OS">
+  <meta property="og:url" content="https://arylide.000webhostapp.com/">
+  <meta property="og:site_name" content="Aerial OS">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Simplest OS for any device, optimized for maximum performance and unlimited cloud storage.">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <link rel="stylesheet" href="http://artaro.000webhostapp.com/i/walloftext/app.css">
+  <link rel="preload" as="font" crossorigin="" type="font/woff2" href="https://cdn.plyr.io/static/fonts/avenir-medium.woff2">
+  <link rel="preload" as="font" crossorigin="" type="font/woff2" href="https://cdn.plyr.io/static/fonts/avenir-bold.woff2">
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<body onclick='toggleVolumeVis();'>
+  <div id='os-volume-wrap'><i class="fas fa-volume-up"></i> <input type="range" min="0" max="10" value="5"></div>
+  <div id='os-body-in' style="padding: 0px;">
+    <div class="clock">
+      <div class="outer-clock-face">
+        <div class="marking marking-one"></div>
+        <div class="marking marking-two"></div>
+        <div class="marking marking-three"></div>
+        <div class="marking marking-four"></div>
+        <div class="inner-clock-face">
+          <div class="hand hour-hand"></div>
+          <div class="hand min-hand"></div>
+          <div class="hand second-hand"></div>
+        </div>
+      </div>
+    </div>
+    <h1 id='os-time' class='os-text os-text-title-b'>00:00</h1>
+    <p class='os-text os-text'><span id='os-date' class='os-text'>Loading...</span><br><span id='os-submsg' style='transition: .2s linear;'></span></p>
+  </div>
+  <script type="text/javascript">
+    var d = new Date();
+    var days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    var shdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var shMon = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var mesgg = ["Have a wonderful day!", "Clock desgin by Katherine Kato @ codepen.io"];
+    var upd = setInterval(refreshDateandTime, 10);
+
+    function refreshDateandTime() {
+      d = new Date();
+      document.getElementById("os-date").innerHTML = "It's " +
+        days[d.getDay()] + ", " + d.getDate() + " of " + shMon[d.getMonth()] + ", " + d.getFullYear();
+      document.getElementById("os-time").innerHTML = d.getHours() + ":" + d.getMinutes();
+    }
+
+    function toggleVolumeVis() {
+      document.getElementById("os-volume-wrap").style.opacity = "1";
+      setTimeout(function() {
+        document.getElementById("os-volume-wrap").style.opacity = "0";
+      }, 5000);
+    }
+
+    function updateSubmessage() {
+      var mesgg = ["Have a wonderful day!", "Clock desgin by Katherine Kato @ codepen.io"];
+      var x = 0;
+      for(j = 0; j <= 100; j++) {
+        for(i = 0; i < mesgg.length; i++) {
+          console.log(i);
+          setTimeout(function () { document.getElementById("os-submsg").style.opacity = "0"; }, j * i * 5000);
+          setTimeout(function () { x++; document.getElementById("os-submsg").innerHTML = mesgg[x % mesgg.length]; document.getElementById("os-submsg").style.opacity = "1"; }, j * i * 5000 + 200);
+        }
+      }
+    }
+    updateSubmessage();
+
+    const secondHand = document.querySelector('.second-hand');
+    const minsHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
+
+    function setDate() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+      const mins = now.getMinutes();
+      const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
+      minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+      const hour = now.getHours();
+      const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
+      hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+    }
+
+    setInterval(setDate, 1000);
+
+    setDate();
+  </script>
+</body>
+</html>

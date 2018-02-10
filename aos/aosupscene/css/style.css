@@ -1,0 +1,145 @@
+#os-body {
+  -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+  /*height: 600px;
+  width: 360px;*/
+  height: 100%;
+  width: 100%;
+  background: url('https://i.imgur.com/DFxGUOD.jpg');
+  background-repeat: no-repeat;
+}
+
+#os-body-in {
+  padding-top: 30px;
+  position: relative;
+  filter: blur(0px);
+  transition: .2s linear;
+  height: 100%;
+}
+
+.os-text {
+  color: #fff;
+}
+
+.os-text-title {
+  font-size: 2em;
+}
+
+.os-text-title-b {
+  font-size: 4em;
+}
+
+.os-text-bigger {
+  font-size: 23px;
+}
+
+.progress-length-wrap {
+  height: 10px;
+  width: 60%;
+  background: #ededed;
+  border-radius: 10px;
+  position: relative;
+  left: 20%;
+  transition: .2s linear;
+}
+
+.progress-length {
+  height: 10px;
+  background: #3498db;
+  border-radius: 10px;
+  transition: .2s linear;
+}
+
+.app-mang {
+  transition: .2s linear;
+}
+
+button {
+  transition: .2s linear;
+  outline: none;
+  border-radius: 10px;
+  padding-top: 3.5em;
+  height: 3.5em;
+  width: 3.5em;
+  border: none;
+  background: rgba(0, 0, 0, .5);
+  color: #fff;
+}
+
+input[type=range] {
+    outline: none;
+    padding: 0;
+    width: 50%;
+    height: 3.5px;
+    background-color: gray;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-track {
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+input[type=range]::-moz-focus-outer {
+    border: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
+    -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
+}
+
+#os-volume-wrap {
+  transition: .2s linear;
+  border-radius: 10px;
+  opacity: 0;
+  color: rgba(0, 0, 0, .7);
+  background: rgba(255, 255, 255, .5);
+  padding: 5px;
+  padding: 13px;
+  width: 100%;
+  position: relative;
+  top: 0px;
+  height: 10%;
+}
+
+@media screen and (min-width: 1024px) {
+    #os-body {
+        background-size: 150%;
+    }
+}
+
+@media screen and (min-width: 2048px) {
+    #os-body {
+        background-size: 220%;
+    }
+}
