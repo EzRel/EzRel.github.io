@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>gazuga</title>
+		<style type="text/css">
+			#caption {
+				position: fixed;
+				bottom: 10px;
+				right: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="caption"></p>
+		<script type="text/javascript">
+			if(window.top.location.href != "http://gazu.ga")
+			{
+				window.top.location.href = "http://gazu.ga";
+			}
+
+			document.getElementById("caption").innerHTML = location.hash;
+		</script>
+	</body>
+</html>
