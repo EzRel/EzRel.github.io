@@ -13,19 +13,24 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<!--div id="post">
+		<div id="post">
 			<i>Loading...</i>
-		</div-->
-		<iframe id="ifr" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%"></iframe>
+		</div>
+		<!--iframe id="ifr" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%"></iframe-->
 		<p id="caption">#random</p>
 		<script type="text/javascript">
 			var tag = window.top.location.hash;
+
+			document.getElementById("caption").innerHTML = tag;
+
+			var content = ["<b>*insert <i><u style='font-size: 20px;'>meme</u></i> here*</b>", "<img src='https://media.giphy.com/media/13gvXfEVlxQjDO/giphy.gif' style='width: 100%; height: 100%;'>"];
+
+			document.getElementById('post').innerHTML = content[Math.floor(Math.random() * content.length)];
+
 			/*if(window.top.location.href != "http://gazu.ga")
 			{
 				window.top.location.href = "http://gazu.ga";
 			}*/
-
-			document.getElementById("caption").innerHTML = tag;
 
 			/*$.post("https://pixelshare.000webhostapp.com/x/gupd.php", {t: tag.substr(1)}, function(data) {
 				document.getElementById('post').innerHTML = data;
@@ -45,8 +50,8 @@
 				}
 			});*/
 
-			document.getElementById('ifr').src = "https://pixelshare.000webhostapp.com/x/gupd.php?t=" + tag.substr(1);
-			/**/
+			/*document.getElementById('ifr').src = "https://pixelshare.000webhostapp.com/x/gupd.php?t=" + tag.substr(1);
+			*/
 		</script>
 	</body>
 </html>
