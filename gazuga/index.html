@@ -26,9 +26,23 @@
 
 			document.getElementById("caption").innerHTML = tag;
 
-			$.post("https://pixelshare.000webhostapp.com/x/gupd.php", {t: tag.substr(1)}, function(data) {
+			/*$.post("https://pixelshare.000webhostapp.com/x/gupd.php", {t: tag.substr(1)}, function(data) {
 				document.getElementById('post').innerHTML = data;
-			})
+			});*/
+
+			$.ajax({
+				type: 'POST',
+				url: 'https://pixelshare.000webhostapp.com/x/gupd.php',
+				crossDomain: true,
+				data: '{"t":"' + tag.substr(1) + '"}',
+				dataType: 'json',
+				success: function(responseData, textStatus, jqXHR) {
+					document.getElementById('post').innerHTML = responseData;
+				},
+				error: function (responseData, textStatus, errorThrown) {
+					alert('An error occured.');
+				}
+			});
 		</script>
 	</body>
 </html>
