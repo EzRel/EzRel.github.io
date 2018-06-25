@@ -6,19 +6,27 @@
 			#caption {
 				position: fixed;
 				bottom: 10px;
-				right: 10px;
+				left: 10px;
+				z-index: 999999999999999999;
 			}
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<body>
+		<div id="post"><i>Loading...</i></div>
 		<p id="caption"></p>
 		<script type="text/javascript">
+			var tag = window.top.location.hash;
 			/*if(window.top.location.href != "http://gazu.ga")
 			{
 				window.top.location.href = "http://gazu.ga";
 			}*/
 
-			document.getElementById("caption").innerHTML = window.top.location.hash;
+			document.getElementById("caption").innerHTML = tag;
+
+			$.post("https://pixelshare.000webhostapp.com/x/gupd.php", {t: tag.substr(1)}, function(data) {
+				document.getElementById('post').innerHTML = data;
+			})
 		</script>
 	</body>
 </html>
