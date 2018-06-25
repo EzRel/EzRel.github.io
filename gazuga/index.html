@@ -13,9 +13,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<div id="post">
+		<!--div id="post">
 			<i>Loading...</i>
-		</div>
+		</div-->
+		<iframe src="https://pixelshare.000webhostapp.com/x/gupd.php" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%"></iframe>
 		<p id="caption"></p>
 		<script type="text/javascript">
 			var tag = window.top.location.hash;
@@ -30,7 +31,7 @@
 				document.getElementById('post').innerHTML = data;
 			});*/
 
-			$.ajax({
+			/*$.ajax({
 				type: 'POST',
 				url: 'https://pixelshare.000webhostapp.com/x/gupd.php',
 				crossDomain: true,
@@ -42,7 +43,7 @@
 				error: function (responseData, textStatus, errorThrown) {
 					alert('An error occured.');
 				}
-			});
+			});*/
 		</script>
 	</body>
 </html>
